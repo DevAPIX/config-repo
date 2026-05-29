@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/devapix_sandbox_db
+    username: postgres
+    password: maha@2606
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  servlet:
+    context-path: /sandbox
+  port: 8084
+  forward-headers-strategy: framework
+
+services:
+  api-catalog:
+    base-url: http://localhost:8082
+  subscription:
+    base-url: http://localhost:8083

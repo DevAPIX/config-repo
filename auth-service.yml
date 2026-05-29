@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/devapix_auth_db
+    username: postgres
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  messages:
+    basename: error-messages
+
+server:
+  port: 8081
+  forward-headers-strategy: framework
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 86400000
+
+logging:
+  file:
+    name: logs/auth-service.log
+  level:
+    root: INFO
+
