@@ -1,4 +1,6 @@
 
+# Secret files - never commit these
+application.properties
 *.secrets.yml
 *.local.yml
 .env

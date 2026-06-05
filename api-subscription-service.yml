@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/devapix_subscription_db
+    url: jdbc:postgresql://postgres-db:5432/devapix_subscription_db
     username: postgres
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
@@ -29,5 +29,12 @@ logging:
 
 services:
   api-catalog:
-    base-url: http://localhost:8082
+    base-url: http://api-catalog-service:8082
+
+razorpay:
+  test:
+    mode: true
+  key:
+    id: rzp_test_Swq7UEebNy1fGA
+    secret: aQLISambRwIeqYSE6m6kR6ii
 
