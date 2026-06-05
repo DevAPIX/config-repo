@@ -20,8 +20,6 @@ spring:
           uri: lb://API-CATALOG-SERVICE
           predicates:
             - Path=/api-catalog/internal/**
-          filters:
-            - StripPrefix=1
         - id: api-subscription-service-docs
           uri: lb://API-SUBSCRIPTION-SERVICE
           predicates:
@@ -46,10 +44,22 @@ spring:
             - Path=/api-catalog/**
           filters:
             - AuthenticationFilter
+        - id: api-catalog-plans
+          uri: lb://API-CATALOG-SERVICE
+          predicates:
+            - Path=/api/**
+          filters:
+            - AuthenticationFilter
         - id: api-subscription-service
           uri: lb://API-SUBSCRIPTION-SERVICE
           predicates:
             - Path=/subscriptions/**
+          filters:
+            - AuthenticationFilter
+        - id: api-usage-endpoints
+          uri: lb://API-SUBSCRIPTION-SERVICE
+          predicates:
+            - Path=/usage/**
           filters:
             - AuthenticationFilter
         - id: sandbox-service

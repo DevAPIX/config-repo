@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/devapix_sandbox_db
+    url: jdbc:postgresql://postgres-db:5432/devapix_sandbox_db
     username: postgres
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
@@ -11,7 +11,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-
 server:
   servlet:
     context-path: /sandbox
@@ -20,6 +19,21 @@ server:
 
 services:
   api-catalog:
-    base-url: http://localhost:8082
+    base-url: http://api-catalog-service:8082
   subscription:
-    base-url: http://localhost:8083
+    base-url: http://api-subscription-service:8083
+
+sandbox:
+  errors:
+    apiNotFound: API not found in catalog
+    apiDataNotFound: Execution data not found for endpoint
+    apiBaseUrlMissing: API Base URL is not configured
+    noSubscription: Active subscription required
+    executionFailed: "API execution failed: {0}"
+    internalError: "Internal error during execution: {0}"
+    apiKeyRequired: API key required. Please subscribe to this API.
+    subscriptionCancelled: Subscription cancelled. Please subscribe again.
+    subscriptionExpired: Subscription expired. Please renew your plan.
+    invalidApiKeyForApi: Invalid API key for this API.
+    invalidOrExpiredApiKey: Invalid or expired API key. Please subscribe to this API.
+    tokenMissing: Authentication token is missing or invalid
