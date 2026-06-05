@@ -35,6 +35,6 @@ razorpay:
   test:
     mode: true
   key:
-    id: rzp_test_Swq7UEebNy1fGA
-    secret: aQLISambRwIeqYSE6m6kR6ii
+    id: ${razorpayId}
+    secret: ${razorpaySecret}
 
